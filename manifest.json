@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Arxiv URL Replacer",
+  "description": "This extension allows the user to change the URL of Arxiv links.",
+  "version": "1.0",
+  "author": "Jithu R Jacob",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches":["https://arxiv.org/*"],
+      "js": [ "background.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

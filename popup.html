@@ -1,0 +1,57 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Arxiv URL Replacer Extension's Popup</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+      #showMsg{
+        display: none;
+        margin-top: 5px
+      }
+      #dropdown{
+        margin-left: 5px;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+    <h1>Replace Arxiv URL's</h1>
+    <div id="container">
+      <span>Choose an action : </span>
+      <select id="dropdown">
+        <option selected disabled hidden value=''></option>
+        <option value="pdf_to_abstract">Replace PDF link with Abstract Link</option>
+        <option value="abstract_to_pdf">Replace Abstract link with PDF Link</option>
+        <option value="none">Do Nothing</option>
+      </select>
+    </div>
+    <span id="showMsg">Refresh page to see the result</span>
+    
+  </body>
+</html>
